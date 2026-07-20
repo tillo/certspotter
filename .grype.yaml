@@ -1,173 +1,168 @@
 ignore:
-  - vulnerability: CVE-2026-5773
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-5773
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-6276
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-6276
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-8376
-    package:
-      name: perl-base
-      type: deb
-
-  # --- added by curator on 2026-07-19 (UTC) ---
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-10536
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-10536
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-11822
     package:
       name: libsqlite3-0
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-11824
     package:
       name: libsqlite3-0
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-11856
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-11856
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-12064
     package:
       name: curl
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-12064
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-41992
     package:
       name: gzip
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-42496
     package:
       name: perl-base
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-42497
     package:
       name: perl-base
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-54369
     package:
       name: libacl1
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-54370
     package:
       name: libacl1
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-8286
     package:
       name: curl
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-8286
     package:
       name: libcurl4t64
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8924
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8924
     package:
       name: libcurl4t64
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8926
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8926
     package:
       name: libcurl4t64
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8927
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8927
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-8932
     package:
       name: curl
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-8932
     package:
       name: libcurl4t64
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-9079
     package:
       name: curl
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-9079
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-9080
     package:
       name: curl
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-9080
     package:
       name: libcurl4t64
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-9538
     package:
       name: perl-base
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-9545
     package:
       name: curl
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-9545
     package:
       name: libcurl4t64
+      type: deb
+
+  # --- added by curator on 2026-07-20 (UTC) ---
+  # High — upstream won't-fix
+  - vulnerability: CVE-2025-69720
+    package:
+      name: libtinfo6
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2025-69720
+    package:
+      name: ncurses-base
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2025-69720
+    package:
+      name: ncurses-bin
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-5435
+    package:
+      name: libc-bin
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-5435
+    package:
+      name: libc6
+      type: deb
+  # Critical — upstream won't-fix
+  - vulnerability: CVE-2026-5450
+    package:
+      name: libc-bin
+      type: deb
+  # Critical — upstream won't-fix
+  - vulnerability: CVE-2026-5450
+    package:
+      name: libc6
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-5928
+    package:
+      name: libc-bin
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-5928
+    package:
+      name: libc6
       type: deb
