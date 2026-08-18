@@ -155,10 +155,24 @@ ignore:
     package:
       name: libc6
       type: deb
-
-  # --- added by curator on 2026-08-17 (UTC) ---
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8376
     package:
       name: perl-base
+      type: deb
+
+  # --- added by curator on 2026-08-18 (UTC) ---
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-14456
+    package:
+      name: libssl3t64
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-14456
+    package:
+      name: openssl
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-14456
+    package:
+      name: openssl-provider-legacy
       type: deb
