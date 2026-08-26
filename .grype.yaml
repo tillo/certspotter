@@ -1,16 +1,4 @@
 ignore:
-  - vulnerability: CVE-2026-14456
-    package:
-      name: libssl3t64
-      type: deb
-  - vulnerability: CVE-2026-14456
-    package:
-      name: openssl
-      type: deb
-  - vulnerability: CVE-2026-14456
-    package:
-      name: openssl-provider-legacy
-      type: deb
   - vulnerability: CVE-2026-58050
     package:
       name: libssh2-1t64
@@ -155,50 +143,46 @@ ignore:
     package:
       name: libcurl4t64
       type: deb
-
-  # --- added by curator on 2026-08-25 (UTC) ---
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: libtinfo6
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: ncurses-base
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: ncurses-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5435
     package:
       name: libc-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5435
     package:
       name: libc6
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-5450
     package:
       name: libc-bin
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-5450
     package:
       name: libc6
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5928
     package:
       name: libc-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5928
     package:
       name: libc6
+      type: deb
+
+  # --- added by curator on 2026-08-26 (UTC) ---
+  # Critical — upstream won't-fix
+  - vulnerability: CVE-2026-8376
+    package:
+      name: perl-base
       type: deb
