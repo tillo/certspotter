@@ -1,28 +1,4 @@
 ignore:
-  - vulnerability: CVE-2026-58050
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-58051
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66032
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66033
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66034
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66035
-    package:
-      name: libssh2-1t64
-      type: deb
   - vulnerability: CVE-2026-10536
     package:
       name: curl
@@ -179,9 +155,6 @@ ignore:
     package:
       name: libc6
       type: deb
-
-  # --- added by curator on 2026-08-26 (UTC) ---
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-8376
     package:
       name: perl-base
