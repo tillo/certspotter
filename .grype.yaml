@@ -1,148 +1,4 @@
 ignore:
-  - vulnerability: CVE-2026-76642
-    package:
-      name: bsdutils
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: libblkid1
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: liblastlog2-2
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: libmount1
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: libsmartcols1
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: libuuid1
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: login
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: mount
-      type: deb
-  - vulnerability: CVE-2026-76642
-    package:
-      name: util-linux
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: bsdutils
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: libblkid1
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: liblastlog2-2
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: libmount1
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: libsmartcols1
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: libuuid1
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: login
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: mount
-      type: deb
-  - vulnerability: CVE-2026-78408
-    package:
-      name: util-linux
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: bsdutils
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: libblkid1
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: liblastlog2-2
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: libmount1
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: libsmartcols1
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: libuuid1
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: login
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: mount
-      type: deb
-  - vulnerability: CVE-2026-78409
-    package:
-      name: util-linux
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: bsdutils
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: libblkid1
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: liblastlog2-2
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: libmount1
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: libsmartcols1
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: libuuid1
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: login
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: mount
-      type: deb
-  - vulnerability: CVE-2026-78410
-    package:
-      name: util-linux
-      type: deb
   - vulnerability: CVE-2026-86145
     package:
       name: libpcre2-8-0
@@ -379,50 +235,51 @@ ignore:
     package:
       name: libcurl4t64
       type: deb
-
-  # --- added by curator on 2026-09-12 (UTC) ---
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: libtinfo6
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: ncurses-base
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2025-69720
     package:
       name: ncurses-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5435
     package:
       name: libc-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5435
     package:
       name: libc6
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-5450
     package:
       name: libc-bin
       type: deb
-  # Critical — upstream won't-fix
   - vulnerability: CVE-2026-5450
     package:
       name: libc6
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5928
     package:
       name: libc-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-5928
     package:
       name: libc6
+      type: deb
+
+  # --- added by curator on 2026-09-13 (UTC) ---
+  # Critical — upstream won't-fix
+  - vulnerability: CVE-2026-8376
+    package:
+      name: perl-base
+      type: deb
+  # High — upstream won't-fix
+  - vulnerability: CVE-2026-89161
+    package:
+      name: libpcre2-8-0
       type: deb
