@@ -1,84 +1,4 @@
 ignore:
-  - vulnerability: CVE-2026-13608
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-13608
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-18924
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-18924
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-19931
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-19931
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-58050
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-58051
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66032
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66033
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66034
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-66035
-    package:
-      name: libssh2-1t64
-      type: deb
-  - vulnerability: CVE-2026-80229
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-80229
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-80230
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-80230
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-80255
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-80255
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-82209
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-82209
-    package:
-      name: libcurl4t64
-      type: deb
   - vulnerability: CVE-2026-10536
     package:
       name: curl
@@ -419,14 +339,10 @@ ignore:
     package:
       name: util-linux
       type: deb
-
-  # --- added by curator on 2026-09-16 (UTC) ---
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-19499
     package:
       name: libc-bin
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-19499
     package:
       name: libc6
