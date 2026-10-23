@@ -95,35 +95,11 @@ ignore:
     package:
       name: libacl1
       type: deb
-  - vulnerability: CVE-2026-8286
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-8286
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-8924
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-8924
-    package:
-      name: libcurl4t64
-      type: deb
   - vulnerability: CVE-2026-8926
     package:
       name: curl
       type: deb
   - vulnerability: CVE-2026-8926
-    package:
-      name: libcurl4t64
-      type: deb
-  - vulnerability: CVE-2026-8927
-    package:
-      name: curl
-      type: deb
-  - vulnerability: CVE-2026-8927
     package:
       name: libcurl4t64
       type: deb
@@ -375,19 +351,14 @@ ignore:
     package:
       name: libkrb5support0
       type: deb
-
-  # --- added by curator on 2026-10-15 (UTC) ---
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-107161
     package:
       name: libsasl2-2
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-107161
     package:
       name: libsasl2-modules
       type: deb
-  # High — upstream won't-fix
   - vulnerability: CVE-2026-107161
     package:
       name: libsasl2-modules-db
