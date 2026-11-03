@@ -7,19 +7,24 @@ FROM ${REGISTRY}golang:${GO_VERSION} AS builder
 # certspotter's own go.mod pins vulnerable golang.org/x/* transitives, and
 # `go install @latest` cannot inject a bump (MVS uses the module's own pins).
 # Build from a scratch module instead and raise the x/* versions explicitly.
-# Re-pin on the next "con correzione" alert: bump CERTSPOTTER_VERSION together
-# with the three X*_VERSION args (targets = grype's `fixedIn`).
+# Renovate moves every pin below: the `# renovate:` line directly above each ARG is
+# read by customManagers:dockerfileVersions (from local>mdapi/renovate-config:image-repo),
+# so its fields must stay in Renovate's order and the line must stay adjacent.
 # CERTSPOTTER_VERSION is the bare release (no leading "v"); the `@v` prefix below
 # is added in go get, and main.Version is set to the same bare value via -ldflags
 # so `certspotter --version` reports it unchanged (the go.mod pins would otherwise
 # make the buildinfo fallback print "unknown").
 #
-# The three X*_VERSION args are the golang.org/x/* releases fixed for the CVEs;
-# they form a synchronized train (x/crypto v0.57.0 <-> x/net v0.59.0 <-> x/text
-# v0.42.0), so bump them as a set, not one at a time.
+# The three X*_VERSION args are floors raised over certspotter's own go.mod pins;
+# they form a synchronized train (x/crypto <-> x/net <-> x/text), which renovate.json
+# groups into one MR so one build proves the set.
+# renovate: datasource=go depName=software.sslmate.com/src/certspotter extractVersion=^v(?<version>.+)$
 ARG CERTSPOTTER_VERSION=0.25.0
+# renovate: datasource=go depName=golang.org/x/crypto
 ARG XCRYPTO_VERSION=v0.57.0
+# renovate: datasource=go depName=golang.org/x/net
 ARG XNET_VERSION=v0.59.0
+# renovate: datasource=go depName=golang.org/x/text
 ARG XTEXT_VERSION=v0.42.0
 
 WORKDIR /src
@@ -35,9 +40,16 @@ RUN go mod init builder && \
 
 # Final image
 
-FROM ${REGISTRY}debian:latest
+# A major tag, not `latest`: the daily CACHEBUST rebuild still takes every 13.x point
+# release and security fix, and Renovate's dockerfile manager proposes debian 14 as a
+# reviewed MR instead of the rebuild switching release underneath the image.
+FROM ${REGISTRY}debian:13
 
-#ENV TINI_VERSION v0.18.0
+# The tini SHA256 is re-pinned by mdapi/fleet's tools/repin_sha256.py whenever Renovate
+# moves TINI_VERSION: it hashes the one URL below that expands ${TINI_VERSION}.
+# renovate: datasource=github-releases depName=krallin/tini
+ARG TINI_VERSION=v0.19.0
+ARG TINI_SHA256=93dcc18adc78c65a028a84799ecf8ad40c936fdfc5f2a57b1acda5a8117fa82c
 
 # ARG changes daily (passed from CI as $(date +%Y%m%d)) so this RUN's
 # cache key invalidates once per day, picking up newly-published security
@@ -48,7 +60,8 @@ RUN echo "cache day: ${CACHEBUST_DAY}" && \
   apt-get install -y curl && \
   rm -rf /var/lib/apt/lists/*
 
-ADD https://github.com/krallin/tini/releases/latest/download/tini /tini
+RUN curl -fsSL -o /tini "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini" && \
+  echo "${TINI_SHA256}  /tini" | sha256sum -c -
 
 RUN mkdir /certspotter/ && \
   cd /certspotter && \
