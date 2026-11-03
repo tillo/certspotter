@@ -1,0 +1,101 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Pins INSIDE the certspotter image (infra-ik4p.11): the certspotter module, the golang.org/x floors the Dockerfile raises over its go.mod, tini, and the golang and debian bases. None of them moved without a CVE before (CERTSPOTTER_VERSION sat at 0.25.0 behind upstream). Runs from mdapi/fleet's `renovate` job, which lists this repo in RENOVATE_REPOSITORIES; Windmill f/probe/renovate_pin_coverage flags any pin no reader sees. The readers (Dockerfile FROM + the `# renovate:` ARG regex), the house core, OSV alerts, the dependency-proxy alias and the SHA re-pin by mdapi/fleet's installed tools/repin_sha256.py come from the shared preset local>mdapi/renovate-config:image-repo; do not set enabledManagers or postUpgradeTasks here, since a repo value REPLACES the preset's. MR-only baseline: a merge here pushes :latest, which mdapi/fleet's digest MR rolls out, so nothing automerges until a graduation tick says so.",
+  "extends": [
+    "local>mdapi/renovate-config:image-repo"
+  ],
+  "automerge": false,
+  "prBodyNotes": [
+    "---",
+    "#### Automerge policy for `{{{depName}}}`",
+    "Tick one box to change what automerges for this dependency **from now on**. Windmill `f/desk/renovate_graduate` reads these once this repo is in its PROJECTS (infra-ik4p.17) and opens an MR against this repo's `renovate.json`; nothing changes until that MR merges. A tick or label set before then is read on its first pass. The label is the durable form — `automerge:digest`, `automerge:minor`, `automerge:major`, `automerge:never` — and works on a merged MR too.",
+    "- [ ] <!--grad:{{{packageName}}}:digest--> automerge future **rebuilds of this tag** — digest: same version, new content &nbsp;·&nbsp; label `automerge:digest`",
+    "- [ ] <!--grad:{{{packageName}}}:minor--> automerge future **minor + patch** &nbsp;·&nbsp; label `automerge:minor`",
+    "- [ ] <!--grad:{{{packageName}}}:major--> automerge future **major** &nbsp;·&nbsp; label `automerge:major`",
+    "- [ ] <!--grad:{{{packageName}}}:never--> **stop** automerging this dependency &nbsp;·&nbsp; label `automerge:never`",
+    "⚠️ `digest` is deliberately NOT implied by the version ticks: on a pinned tag (`debian:13`) a digest is that release rebuilt, the base-image fix path. A merge here builds and pushes `:latest`, and mdapi/fleet's digest MR for certspotter/certspotter-deploy.yml deploys it."
+  ],
+  "packageRules": [
+    {
+      "description": "The golang.org/x modules are a synchronized train: x/crypto, x/net and x/text move as ONE MR, so one build proves the set.",
+      "matchDepNames": [
+        "golang.org/x/crypto",
+        "golang.org/x/net",
+        "golang.org/x/text"
+      ],
+      "groupName": "golang.org/x train",
+      "groupSlug": "golang-x-train"
+    },
+    {
+      "description": "GRADUATED — minor+patch (promoted by the graduation tick / Windmill f/desk/renovate_graduate). The baseline here is MR-only, so this list is the whole minor+patch automerge. Must sit above GRADUATED — major. `__none__` is a sentinel, not a package: it keeps an emptied list inert instead of matching everything.",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchPackageNames": [
+        "__none__"
+      ],
+      "automerge": true,
+      "labels": [
+        "renovate",
+        "automerge",
+        "graduated"
+      ]
+    },
+    {
+      "description": "GRADUATED — digest. Automerge a DIGEST update (same tag, rebuilt content) for the packages named here, written by the `automerge:digest` tick or label. ⚠️ PLACEMENT IS THE MECHANISM: must sit ABOVE 'DIGEST CHURN IS ONE MR', whose matchJsonata reads `automerge` as resolved by the rules above it.",
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "matchPackageNames": [
+        "__none__"
+      ],
+      "automerge": true,
+      "labels": [
+        "renovate",
+        "automerge",
+        "graduated",
+        "digest-automerge"
+      ]
+    },
+    {
+      "description": "⛔ DEMOTED — MR-only whatever else says otherwise. Written by the `automerge:never` tick or label, which ALSO removes the package from every GRADUATED rule — the removal is what makes it bite, since GRADUATED·minor and ·major sit below this rule. ⚠️ Must sit ABOVE 'DIGEST CHURN IS ONE MR': a demoted digest admitted to the shared branch would hold it open for every member.",
+      "matchPackageNames": [
+        "__none__"
+      ],
+      "automerge": false,
+      "labels": [
+        "renovate",
+        "mr-only",
+        "demoted"
+      ]
+    },
+    {
+      "description": "DIGEST CHURN IS ONE MR — every digest update that automerges shares one branch. matchJsonata reads `automerge` as resolved by the rules ABOVE, which keeps MR-only digests out: a group automerges only if every member does. Must stay below every rule that sets automerge for a digest.",
+      "matchUpdateTypes": [
+        "digest"
+      ],
+      "matchJsonata": [
+        "automerge = true"
+      ],
+      "groupName": "image digests",
+      "groupSlug": "image-digests"
+    },
+    {
+      "description": "GRADUATED — major. Packages explicitly promoted to MAJOR automerge by the graduation tick or the automerge:major label. A major is a breaking change by definition, so only packages named here automerge one. MUST stay last: packageRules are last-match-wins, and un-graduation is a removal from these lists.",
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "matchPackageNames": [
+        "__none__"
+      ],
+      "automerge": true,
+      "labels": [
+        "renovate",
+        "automerge",
+        "graduated",
+        "major-automerge"
+      ]
+    }
+  ]
+}
