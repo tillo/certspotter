@@ -21,11 +21,11 @@ FROM ${REGISTRY}golang:${GO_VERSION} AS builder
 # renovate: datasource=go depName=software.sslmate.com/src/certspotter extractVersion=^v(?<version>.+)$
 ARG CERTSPOTTER_VERSION=0.25.0
 # renovate: datasource=go depName=golang.org/x/crypto
-ARG XCRYPTO_VERSION=v0.57.0
+ARG XCRYPTO_VERSION=v0.58.0
 # renovate: datasource=go depName=golang.org/x/net
 ARG XNET_VERSION=v0.62.0
 # renovate: datasource=go depName=golang.org/x/text
-ARG XTEXT_VERSION=v0.42.0
+ARG XTEXT_VERSION=v0.43.0
 
 WORKDIR /src
 RUN go mod init builder && \
