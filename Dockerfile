@@ -25,7 +25,7 @@ ARG XCRYPTO_VERSION=v0.57.0
 # renovate: datasource=go depName=golang.org/x/net
 ARG XNET_VERSION=v0.59.0
 # renovate: datasource=go depName=golang.org/x/text
-ARG XTEXT_VERSION=v0.42.0
+ARG XTEXT_VERSION=v0.43.0
 
 WORKDIR /src
 RUN go mod init builder && \
