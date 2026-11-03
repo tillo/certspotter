@@ -33,7 +33,10 @@
         "patch"
       ],
       "matchPackageNames": [
-        "__none__"
+        "__none__",
+        "golang.org/x/net",
+        "golang.org/x/text",
+        "software.sslmate.com/src/certspotter"
       ],
       "automerge": true,
       "labels": [
@@ -48,7 +51,10 @@
         "digest"
       ],
       "matchPackageNames": [
-        "__none__"
+        "__none__",
+        "golang.org/x/net",
+        "golang.org/x/text",
+        "software.sslmate.com/src/certspotter"
       ],
       "automerge": true,
       "labels": [
