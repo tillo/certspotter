@@ -15,7 +15,7 @@ FROM ${REGISTRY}golang:${GO_VERSION} AS builder
 # so `certspotter --version` reports it unchanged (the go.mod pins would otherwise
 # make the buildinfo fallback print "unknown").
 #
-# The three X*_VERSION args are floors raised over certspotter's own go.mod pins;
+# The three X*_VERSION args are exact versions raised over certspotter's own go.mod pins;
 # they form a synchronized train (x/crypto <-> x/net <-> x/text), which renovate.json
 # groups into one MR so one build proves the set.
 # renovate: datasource=go depName=software.sslmate.com/src/certspotter extractVersion=^v(?<version>.+)$
@@ -27,15 +27,22 @@ ARG XNET_VERSION=v0.62.0
 # renovate: datasource=go depName=golang.org/x/text
 ARG XTEXT_VERSION=v0.43.0
 
+# ONE `go get` for certspotter and the three pins: a pin below what certspotter
+# requires is then an error ("requires golang.org/x/crypto@v0.52.0, not ...@v0.38.0").
+# Split into two calls, the second silently DOWNGRADES certspotter to whatever
+# release fits the pins (v0.26.2 -> v0.20.0 for an old x/* train), and -ldflags
+# still stamps CERTSPOTTER_VERSION on it. The `go version -m` check below reads
+# the version the binary was really built from.
 WORKDIR /src
 RUN go mod init builder && \
-    go get software.sslmate.com/src/certspotter/cmd/certspotter@v${CERTSPOTTER_VERSION} && \
-    go get golang.org/x/crypto@${XCRYPTO_VERSION} golang.org/x/net@${XNET_VERSION} golang.org/x/text@${XTEXT_VERSION} && \
+    go get software.sslmate.com/src/certspotter/cmd/certspotter@v${CERTSPOTTER_VERSION} \
+        golang.org/x/crypto@${XCRYPTO_VERSION} golang.org/x/net@${XNET_VERSION} golang.org/x/text@${XTEXT_VERSION} && \
     mkdir -p /go/bin && \
     CGO_ENABLED=0 go build \
         -ldflags "-X main.Version=${CERTSPOTTER_VERSION} -X main.Source=software.sslmate.com/src/certspotter" \
         -o /go/bin/certspotter \
         software.sslmate.com/src/certspotter/cmd/certspotter && \
+    go version -m /go/bin/certspotter | grep -qE "^\s+mod\s+software\.sslmate\.com/src/certspotter\s+v${CERTSPOTTER_VERSION}\s" && \
     /go/bin/certspotter --version
 
 # Final image
