@@ -19,7 +19,7 @@ FROM ${REGISTRY}golang:${GO_VERSION} AS builder
 # they form a synchronized train (x/crypto <-> x/net <-> x/text), which renovate.json
 # groups into one MR so one build proves the set.
 # renovate: datasource=go depName=software.sslmate.com/src/certspotter extractVersion=^v(?<version>.+)$
-ARG CERTSPOTTER_VERSION=0.25.0
+ARG CERTSPOTTER_VERSION=0.26.2
 # renovate: datasource=go depName=golang.org/x/crypto
 ARG XCRYPTO_VERSION=v0.57.0
 # renovate: datasource=go depName=golang.org/x/net
