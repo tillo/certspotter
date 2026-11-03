@@ -8,7 +8,7 @@
   "prBodyNotes": [
     "---",
     "#### Automerge policy for `{{{depName}}}`",
-    "Tick one box to change what automerges for this dependency **from now on**. Windmill `f/desk/renovate_graduate` reads these once this repo is in its PROJECTS (infra-ik4p.17) and opens an MR against this repo's `renovate.json`; nothing changes until that MR merges. A tick or label set before then is read on its first pass. The label is the durable form — `automerge:digest`, `automerge:minor`, `automerge:major`, `automerge:never` — and works on a merged MR too.",
+    "Tick one box to change what automerges for this dependency **from now on**. Windmill `f/desk/renovate_graduate` reads the ticks and labels on this repo's Renovate MRs and opens an MR against its `renovate.json`; nothing changes until that MR merges. The label is the durable form — `automerge:digest`, `automerge:minor`, `automerge:major`, `automerge:never` — and works on a merged MR too.",
     "- [ ] <!--grad:{{{packageName}}}:digest--> automerge future **rebuilds of this tag** — digest: same version, new content &nbsp;·&nbsp; label `automerge:digest`",
     "- [ ] <!--grad:{{{packageName}}}:minor--> automerge future **minor + patch** &nbsp;·&nbsp; label `automerge:minor`",
     "- [ ] <!--grad:{{{packageName}}}:major--> automerge future **major** &nbsp;·&nbsp; label `automerge:major`",
