@@ -25,7 +25,7 @@ ARG XCRYPTO_VERSION=v0.58.0
 # renovate: datasource=go depName=golang.org/x/net
 ARG XNET_VERSION=v0.62.0
 # renovate: datasource=go depName=golang.org/x/text
-ARG XTEXT_VERSION=v0.43.0
+ARG XTEXT_VERSION=v0.44.0
 
 # ONE `go get` for certspotter and the three pins: a pin below what certspotter
 # requires is then an error ("requires golang.org/x/crypto@v0.52.0, not ...@v0.38.0").
